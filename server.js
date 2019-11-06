@@ -15,7 +15,7 @@ app.post('/subscribe', async (req, res) => {
     return res.json({ success: false, msg: 'Please select captcha' });
 
   // Secret key
-  const secretKey = SECRET_KEY;
+  const secretKey = process.env.SECRET_KEY;
 
   // Verify URL
   const query = stringify({
