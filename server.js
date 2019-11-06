@@ -4,6 +4,8 @@ const fetch = require('node-fetch');
 const { stringify } = require('querystring');
 const app = express();
 
+require('dotenv').config();
+
 app.use(express.json());
 
 app.get('/', (_, res) => res.sendFile(__dirname + '/index.html'));
@@ -13,7 +15,7 @@ app.post('/subscribe', async (req, res) => {
     return res.json({ success: false, msg: 'Please select captcha' });
 
   // Secret key
-  const secretKey = '6LdWSsEUAAAAADAMLnPjlL608NEXfnmdcfqSO1VT';
+  const secretKey = SECRET_KEY;
 
   // Verify URL
   const query = stringify({
